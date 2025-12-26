@@ -14,18 +14,20 @@ description: package com.skeletonarmy.marrow.prompts
 
 To create a new prompt, provide:
 
-1. A **header** for the prompt.
-2. A **boolean** indicating whether the user must select at least one option.
-3. A **boolean** indicating whether the selection order should be displayed.
-4. A **list of selectable options**.
+1. A header for the prompt.
+2. A boolean indicating whether the user must select at least one option.
+3. A boolean indicating whether the selection order should be displayed.
+4. An integer specifying the maximum amount of options that can be selected.
+5. A list of selectable options.
 
 Example:
 
 ```java
 new MultiOptionPrompt<>(
-    "Select Starting Items",  // Header
-    true,                     // Require at least one selection
-    false,                    // Do not order the options
+    "Select Starting Items",         // Header
+    true,                            // Require at least one selection
+    false,                           // Do not order the options
+    2,                               // Max amount of selections
     Item.RED, Item.BLUE, Item.GREEN  // Options
 );
 ```
