@@ -70,5 +70,5 @@ Settings.set("alliance", Alliance.BLUE);
 * `set(key, value, (optional) save)` - Stores a value under the given key. If `save` is `true` (default), the settings are immediately written to file.
 
 {% hint style="info" %}
-You can use `Settings` even without any `SettingsOpMode`. It can serve just as a central hub for saving variables between OpModes and restarts.
+You can use `Settings` even without any `SettingsOpMode`. It can serve simply as a central hub for saving variables between OpModes and restarts.
 {% endhint %}
