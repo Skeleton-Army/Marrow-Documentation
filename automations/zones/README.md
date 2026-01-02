@@ -15,7 +15,7 @@ Check out the ["Spatial Awareness" page](../../concepts/spatial-awareness.md) to
 <figure><img src="../../.gitbook/assets/Zones.gif" alt="A GIF showing Zones in action" width="422"><figcaption></figcaption></figure>
 
 {% hint style="info" %}
-For `Zones` to function properly, you must ensure that your robot's position is accurate.
+For `Zones` to work properly, the robot's position on the field must be accurate. `Zones` does not perform localization itself; instead, it relies on position data provided by any localizer you choose.
 {% endhint %}
 
 ***
