@@ -26,13 +26,23 @@ Prompter prompter = new Prompter(this);
 
 
 
+### **Running the** Prompter
+
+To start the `Prompter`, simply call `run()` in your loop function (usualy `init_loop()`). This will run until all prompts are completed.
+
+```java
+prompter.run();
+```
+
+
+
 ### Enqueuing Prompts
 
 Prompts are added to the `Prompter` using `prompt(String, Prompt<T>)`.
 
 ```java
 prompter.prompt("alliance", new OptionPrompt<>("Select Alliance", Alliance.RED, Alliance.BLUE))
-        .prompt("delay", new ValuePrompt("Start Delay", 0.0, 10.0, 0.0, 1.0))
+        .prompt("delay", new ValuePrompt<>("Start Delay", Double.class, 0.0, 10.0, 0.0, 1.0))
         .prompt("enable_park", new BooleanPrompt("Enable Park?", true));
 ```
 
@@ -48,16 +58,26 @@ boolean shouldPark = prompter.get("enable_park");
 
 ### Conditional Prompts
 
-You can conditionally add prompts using a `Supplier<Prompt<T>>`. This lets you decide whether to show a prompt based on earlier choices.
+You can conditionally add prompts. This lets you decide whether to show a prompt based on earlier choices.
 
 ```java
-prompter.prompt("park_location", () -> {
-    if (prompter.get("enable_park").equals(true)) {
-        return new OptionPrompt<>("Select Park Location", 1, 2);
-    }
-    return null; // Skip if the driver chose not to park
-});
+prompter.prompt("enable_park", new BooleanPrompt("Enable Park?", true))
+        .prompt("park_location", new OptionPrompt<>("Select Park Location", 1, 2))
+                .showIf("enable_park", true)
+                .or(() -> debugMode)
 ```
+
+#### Condition Methods
+
+| Method                    | Description                   |
+| ------------------------- | ----------------------------- |
+| `showIf(String, Object)`  | Show if key equals value      |
+| `showIf(BooleanSupplier)` | Show if supplier returns true |
+| `or(String, Object)`      | OR with previous condition    |
+| `or(BooleanSupplier)`     | OR with supplier condition    |
+| `not()`                   | Negate the previous condition |
+
+#### Retrieving Results
 
 You can retrieve the result using `getOrDefault(string, T)`. If there is no selection for the prompt, it will return the provided default value.
 
@@ -82,12 +102,42 @@ prompter.onComplete(() -> {
 
 
 
-### **Running the** Prompter
+### Summary Screen
 
-To start the `Prompter`, simply call `run()` in your loop function. This will run until all prompts are completed.
+After all prompts are answered, optionally show a summary screen where the driver can review and confirm selections:
 
 ```java
-prompter.run();
+prompter.prompt("alliance", new OptionPrompt<>("Select Alliance", Alliance.RED, Alliance.BLUE))
+        .prompt("delay", new ValuePrompt<>("Start Delay", Double.class, 0.0, 10.0, 0.0, 1.0))
+        .showSummary() // !
+        .onComplete(this::onPromptsComplete);
+```
+
+The summary screen displays all answered prompts with customizable labels. The driver can confirm with A or go back with B to edit previous selections.
+
+#### Custom Labels
+
+By default, the summary will display selections with their keys. You can optionally set custom display labels using `label()`:
+
+```java
+prompter.prompt("alliance", new OptionPrompt<>("Select Alliance", Alliance.RED, Alliance.BLUE))
+                .label("Alliance Color")
+        .prompt("delay", new ValuePrompt<>("Start Delay", Double.class, 0.0, 10.0, 0.0, 1.0))
+                .label("Start Delay (sec)")
+```
+
+
+
+### Callbacks
+
+Execute code immediately after a prompt is answered using `then(Consumer<T>)`:
+
+```java
+prompter.prompt("alliance", new OptionPrompt<>("Select Alliance", Alliance.RED, Alliance.BLUE))
+    .then((alliance) -> {
+        telemetry.addData("Selected", alliance);
+        telemetry.update();
+    })
 ```
 
 
@@ -117,14 +167,14 @@ public class MyAuto extends OpMode {
     @Override
     public void init() {
         prompter.prompt("alliance", new OptionPrompt<>("Select Alliance", Alliance.RED, Alliance.BLUE))
-                .prompt("delay", new ValuePrompt("Start Delay", 0.0, 10.0, 0.0, 1.0))
+                .prompt("delay", new ValuePrompt<>("Start Delay", Double.class, 0.0, 10.0, 0.0, 1.0))
                 .prompt("enable_park", new BooleanPrompt("Enable Park?", true))
-                .prompt("park_location", () -> {
-                    if (prompter.get("enable_park").equals(true)) {
-                        return new OptionPrompt<>("Select Park Location", 1, 2);
-                    }
-                    return null; // Skip if the driver chose not to park
-                })
+                    .label("Park Enabled")
+                .prompt("park_location", new OptionPrompt<>("Select Park Location", 1, 2))
+                    .label("Park Location")
+                    .showIf("enable_park", true)
+                .prompt(new MessagePrompt("MAKE SURE ALL SYSTEMS ARE READY"))
+                .showSummary()
                 .onComplete(this::onPromptsComplete);
     }
     

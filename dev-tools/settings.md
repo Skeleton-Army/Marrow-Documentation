@@ -13,7 +13,7 @@ You can configure these options inside a [`SettingsOpMode`](settings.md#defining
 <figure><img src="../.gitbook/assets/Settings.gif" alt="A GIF showing Settings in action" width="563"><figcaption></figcaption></figure>
 
 {% hint style="warning" %}
-We strongly recommend disabling any settings that could interfere with TeleOp before starting autonomous to avoid issues in a match.
+We strongly recommend disabling any settings that could interfere with TeleOp before starting autonomous to avoid issues in a match (for example, a debugging mode).
 {% endhint %}
 
 ***

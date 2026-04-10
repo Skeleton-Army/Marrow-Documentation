@@ -10,7 +10,7 @@ description: package com.skeletonarmy.marrow.<command_library>
 
 This is especially useful for actions that may fail on the first attempt, such as vision-based alignment, object grabbing, or precise mechanism positioning.
 
-Check out the ["Retries" page](../concepts/retries.md) to learn how to use `RetryCommand` for autonomous behaviors.
+Check out the ["Retries" page](../../concepts/retries.md) to learn how to use `RetryCommand` for autonomous behaviors.
 
 {% hint style="info" %}
 **Available in:**

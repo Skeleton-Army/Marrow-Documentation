@@ -6,7 +6,7 @@ description: package com.skeletonarmy.marrow.prompts
 
 ## Overview
 
-`MultiOptionPrompt<T>` is a generic prompt used in pre-match configuration screens with `Prompter`. It allows drivers to select **multiple** options from a list using the gamepad. Each selected item is clearly marked, and the selection can be confirmed by navigating to the `DONE` entry and pressing the confirm button.
+`MultiOptionPrompt<T>` is a generic prompt used in pre-match configuration screens with [`Prompter`](./). It allows drivers to select **multiple** options from a list using the gamepad.
 
 ***
 
@@ -20,8 +20,6 @@ To create a new prompt, provide:
 4. An integer specifying the maximum amount of options that can be selected.
 5. A list of selectable options.
 
-Example:
-
 ```java
 new MultiOptionPrompt<>(
     "Select Starting Items",         // Header
@@ -30,6 +28,12 @@ new MultiOptionPrompt<>(
     2,                               // Max amount of selections
     Item.RED, Item.BLUE, Item.GREEN  // Options
 );
+```
+
+You can also pass an Enum class directly. The prompt will automatically use all defined constants within that Enum:
+
+```java
+new MultiOptionPrompt<>("Select Starting Items", true, false, 2, Item.class)
 ```
 
 This will display a scrollable list with checkboxes. Drivers can toggle each option by pressing the confirm button while the option is highlighted. The prompt returns a `List<T>` containing all selected options when `DONE` is confirmed.
@@ -42,7 +46,7 @@ Can be used with any object type that has a meaningful `toString()` method, sinc
 
 * <kbd>D-PAD UP</kbd>: Move selection up
 * <kbd>D-PAD DOWN</kbd>: Move selection down
-* <kbd>A</kbd>: Select
+* <kbd>CROSS/A</kbd>: Select
 
 ### Telemetry Output Example
 

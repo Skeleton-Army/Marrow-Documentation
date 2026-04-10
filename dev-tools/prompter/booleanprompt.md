@@ -6,7 +6,7 @@ description: package com.skeletonarmy.marrow.prompts
 
 ## Overview
 
-`BooleanPrompt` is a simple yes/no toggle used in pre-match configuration screens with [`Prompter`](./). It allows drivers to switch between `true` and `false` values using the <kbd>D-PAD</kbd> and confirm the selection with a button press. The current selection is clearly shown as `"Yes"` or `"No"` in telemetry.
+`BooleanPrompt` is a simple yes/no toggle used in pre-match configuration screens with [`Prompter`](./). It allows drivers to switch between `TRUE` and `FALSE` values using the <kbd>D-PAD</kbd> and confirm the selection with a button press.
 
 ***
 
@@ -18,12 +18,12 @@ To create a new prompt, provide a header and a default value:
 new BooleanPrompt("Enable Auto Score?", true)
 ```
 
-This will display a prompt that starts with `"Yes"` and toggles between `"Yes"` and `"No"`. The selected value is returned when the user presses the <kbd>A</kbd> button.
+This will display a prompt that starts with `"Yes"` and toggles between `"Yes"` and `"No"`. The selected value is returned when the user presses the <kbd>CROSS/A</kbd> button.
 
 ### Controls
 
 * <kbd>Any D-PAD Direction</kbd>: Toggle value (Yes / No)
-* <kbd>A</kbd>: Confirm selection
+* <kbd>CROSS/A</kbd>: Confirm selection
 
 ### Telemetry Output Example
 

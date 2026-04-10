@@ -1,20 +1,3 @@
----
-layout:
-  width: default
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
-  metadata:
-    visible: true
----
-
 # ☠️ Introduction
 
 **Marrow is an open-source library built to turn your robot from a deterministic machine into an intelligent powerhouse.**

@@ -24,10 +24,11 @@ For `Zones` to work properly, the robot's position on the field must be accurate
 
 All zones implement the `Zone` interface, which provides common geometry methods.
 
-Two built-in implementations are available:
+Three built-in implementations are available:
 
 * [`CircleZone`](circlezone.md) - circular areas defined by center and radius
 * [`PolygonZone`](polygonzone.md) - triangular, rectangular, or arbtrary-shaped areas defined by three or more points.
+* [`CompositeZone`](compositezone.md) - area defined by a combination of circles and polygons.
 
 | Method                                 | Description                                                      |
 | -------------------------------------- | ---------------------------------------------------------------- |

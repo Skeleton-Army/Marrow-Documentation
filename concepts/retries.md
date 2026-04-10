@@ -27,6 +27,6 @@ As you can see, these retries mean the difference between a poor auto run and a 
 
 ## Using Marrow
 
-To make this easier, Marrow provides a [`RetryCommand`](../automations/retrycommand.md) that handles the retry logic for you.
+To make this easier, Marrow provides a [`RetryCommand`](../automations/retrycommand/) that handles the retry logic for you.
 
-For a full breakdown of how to use it in your own code, see the [`RetryCommand` reference page](../automations/retrycommand.md).
+For a full breakdown of how to use it in your own code, see the [`RetryCommand` reference page](../automations/retrycommand/).

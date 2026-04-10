@@ -19,7 +19,8 @@
   * [CircleZone](automations/zones/circlezone.md)
   * [CompositeZone](automations/zones/compositezone.md)
 * [TimerEx](automations/timerex.md)
-* [RetryCommand](automations/retrycommand.md)
+* [RetryCommand](automations/retrycommand/README.md)
+  * [RetryAction](automations/retrycommand/retryaction.md)
 
 ## Dev Tools
 
@@ -28,6 +29,7 @@
   * [MultiOptionPrompt](dev-tools/prompter/multioptionprompt.md)
   * [ValuePrompt](dev-tools/prompter/valueprompt.md)
   * [BooleanPrompt](dev-tools/prompter/booleanprompt.md)
+  * [MessagePrompt](dev-tools/prompter/messageprompt.md)
 * [Settings](dev-tools/settings.md)
 * [OpModeManager](dev-tools/opmodemanager.md)
 * [LynxUtil](dev-tools/lynxutil.md)
