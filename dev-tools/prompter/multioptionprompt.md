@@ -17,7 +17,8 @@ To create a new prompt, provide:
 1. A header for the prompt.
 2. A boolean indicating whether the user must select at least one option.
 3. A boolean indicating whether the selection order should be displayed.
-4. An integer specifying the maximum amount of options that can be selected.
+4. An integer specifying the maximum number of options that can be selected.
+   1. If a non-positive integer is provided, the maximum selections will equal the total number of options
 5. A list of selectable options.
 
 ```java

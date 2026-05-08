@@ -101,6 +101,7 @@ public class MyAuto extends CommandOpMode {
 
 ## Source Code
 
-You can check out the source code on the [GitHub repository](https://github.com/Skeleton-Army/Marrow/tree/main/customLibraries).
+As with all of Marrow's code you are more than welcome to view it in our [GitHub repository](https://github.com/Skeleton-Army/Marrow/tree/main/customLibraries).
 
-If you are using an unsupported command-based library and want to implement this command in your codebase, you may do so.
+If you are using an unsupported command-based library and want to implement this command in your codebase, you are welcome do so. \
+And if you wish to add to it Marrow, please submit a Pull Request.
