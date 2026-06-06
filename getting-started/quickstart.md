@@ -6,7 +6,7 @@ In your `TeamCode/build.gradle`, add the following inside the `dependencies` blo
 
 ```groovy
 dependencies {
-   implementation 'com.skeletonarmyftc.marrow:core:1.1.0'
+   implementation 'com.skeletonarmyftc.marrow:core:1.1.1'
 }
 ```
 

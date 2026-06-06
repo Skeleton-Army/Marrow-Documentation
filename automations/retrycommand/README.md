@@ -17,7 +17,8 @@ Check out the ["Retries" page](../../concepts/retries.md) to learn how to use `R
 
 🟢 [SolversLib](https://docs.seattlesolvers.com/command-base/command-system/convenience-commands#retrycommand) - included natively (Marrow not required)\
 🟠 [FTCLib](https://docs.ftclib.org/ftclib/) - provided through Marrow\
-🟠 [NextFTC](https://nextftc.dev/) - provided through Marrow
+🟠 [NextFTC](https://nextftc.dev/) - provided through Marrow\
+🟠 [Ivy](https://pedropathing.com/docs/ivy) - provided through Marrow
 {% endhint %}
 
 ***
